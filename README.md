@@ -11,13 +11,13 @@ We can use [the spotify api](https://developer.spotify.com/console/playlists/) t
 - get it back in a google form or smth like that
 - check their satisfaction of high and low diversity lists against user metrics (sophistication, preference)
  
- # TODOs
+# TODOs
 ## Work
 1. Generate lots of songs to build lists from - V
 2. Build diversity score based lists - K
-3. Present playlists back to users - A
+3. Present playlists back to users - A  
 **DEADLINE DEC1**
-4. Analyize insights - G
+4. Analyize insights - G    
 **DEADLINE DEC6**
 
 ## Presentation
