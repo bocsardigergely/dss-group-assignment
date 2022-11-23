@@ -29,3 +29,17 @@ all hands on deck
 - Method - V, K
 - Results - G
 - Discussion - K, V
+
+## Qs for Martijn
+- what metrics to use when asking users for feedback
+    - comparative questions or objective questions?
+        - we should use objective questions
+    - USE EXISTING QUESTIONNAIRES from [[@ekstrandUserPerceptionDifferences2014]](https://doi.org/10.1145/2645710.2645737) and [[@liangPersonalizedRecommendationsMusic2019]](https://doi.org/10.1145/3320435.3320455) papers
+        - Use 2-3 that had high factor loading
+    - diversity questions from [[@heInteractiveRecommenderSystems2016]](https://doi.org/10.1016/j.eswa.2016.02.013) paper discussed recently
+- diversifying on stuff other than genre
+    - diversifying on song characteristics / features is a better idea, just be careful not to go too far
+        - plot a contour plot of the feature values to see how diverse we are
+        - check users given feature preference variance, and stay close to those
+        - try it on ourselves first
+    - using artists might be better than genre
