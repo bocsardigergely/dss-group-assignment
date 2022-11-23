@@ -40,7 +40,6 @@ class API:
     users = users["user_id"].unique()
     return users
 
-    # TODO check if those playlists exist, if not, create them
   def createUserPlaylists(self, user=credentials.USER_ID,):
     """The user refers to the user account where the playlists will be created.
     """
@@ -74,5 +73,32 @@ class API:
 
       response = requests.request("POST", url, headers=headers, data=payload)
 
-      print(response.text)
+      if not response.text.contains("collaborative"):
+        print(f"Creation of {new_name} failed.")
+      
+      print("The playlists are created!")
 
+  # TODO create a method which, for a given user, returns the playlist id based on the playlist's name
+  # def getPlaylistIdFromName():
+
+  # TODO test this
+  def populatePlaylist(self, playlist_id: str, song_uris: list, user=credentials.USER_ID):
+    # Test add to list
+    url = f"https://api.spotify.com/v1/playlists/{playlist_id}/tracks"
+
+    # Convert song uris to the right format
+    uris = []
+    for uri in song_uris:
+      uris.append(f"spotify:track:{uri}")
+
+    payload = json.dumps({
+      "uris": uris
+    })
+    headers = {
+      'Authorization': f'Bearer {credentials.ACCESS_TOKEN}',
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.request("POST", url, headers=headers, data=payload)
+
+    print(response.text)
