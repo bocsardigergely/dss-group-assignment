@@ -1,7 +1,15 @@
+# data
 participant data
+
+# instructions
 Decision Support Systems - group assignment.pdf
-credentials.py
 
 # Virtual environments
 venv
+
+# Postman collection / API info
 Spotify.postman_collection.json
+credentials.py
+
+# cache
+__pycache__
