@@ -1,14 +1,36 @@
+# Lovely resource
+# https://developer.spotify.com/documentation/web-api/reference/#/operations/remove-tracks-playlist
 from oauthlib.oauth2 import WebApplicationClient
 import credentials
 import requests
 import pandas as pd
 import json
+import base64
 
 class API:
   def __init__(self):
-    self.headers = {
-      'Authorization': f'Bearer {credentials.ACCESS_TOKEN}'
+    self.refreshToken()
+
+  def refreshToken(self):
+    # The data to be sent
+    url = "https://accounts.spotify.com/api/token"
+
+    headers= {
+      "Authorization": f"Basic {base64.b64encode(bytes(credentials.CLIENT_ID + ':' + credentials.CLIENT_SECRET, 'ISO-8859-1')).decode('ascii')}",
+      "Content-Type": "application/x-www-form-urlencoded"
     }
+
+    body= {
+      "grant_type": "client_credentials"
+    }
+
+    # Send the request
+    response = requests.post(url=url, data=body, headers=headers)
+
+    # Update the access token
+    self.ACCESS_TOKEN = json.loads(response.text)["access_token"]
+    print (response.reason)
+
 
   def getPlaylists(self, user=credentials.USER_ID, offset=0, limit=20):
     """Get the public playlists of the specified user (default is the test user)
@@ -23,7 +45,7 @@ class API:
 
     payload={}
     headers = {
-      'Authorization': f'Bearer {credentials.ACCESS_TOKEN}'
+      'Authorization': f'Bearer {self.ACCESS_TOKEN}'
     }
 
     response = requests.request("GET", url, headers=headers, data=payload)
@@ -67,7 +89,7 @@ class API:
       })
 
       headers = {
-        'Authorization': f'Bearer {credentials.ACCESS_TOKEN}',
+        'Authorization': f'Bearer {self.ACCESS_TOKEN}',
         'Content-Type': 'application/json'
       }
 
@@ -95,7 +117,7 @@ class API:
       "uris": uris
     })
     headers = {
-      'Authorization': f'Bearer {credentials.ACCESS_TOKEN}',
+      'Authorization': f'Bearer {self.ACCESS_TOKEN}',
       'Content-Type': 'application/json'
     }
 
