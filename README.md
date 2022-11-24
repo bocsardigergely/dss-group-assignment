@@ -1,3 +1,4 @@
+# Assignment
 ## Make Recommendations for Users
 - Take the current [diversity](https://doi.org/10.1145/3320435.3320455) of users
 - generate a lot of tracks for them
@@ -11,6 +12,9 @@ We can use [the spotify api](https://developer.spotify.com/console/playlists/) t
 - get it back in a google form or smth like that
 - check their satisfaction of high and low diversity lists against user metrics (sophistication, preference)
  
+# How to use the API
+You need the credentials.py file in the main directory (same folder as API.py).
+
 # TODOs
 ## Work
 1. Generate lots of songs to build lists from - V
