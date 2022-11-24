@@ -1,6 +1,5 @@
 # Lovely resource
 # https://developer.spotify.com/documentation/web-api/reference/#/operations/remove-tracks-playlist
-from oauthlib.oauth2 import WebApplicationClient
 import credentials
 import requests
 import pandas as pd
@@ -58,9 +57,18 @@ class API:
 
     Returns: a list of strings.
     """
+    # Use user ID as base
     users = pd.read_csv("participant data/survey data/msi_response.csv")
     users = users["user_id"].unique()
-    return users
+    
+    playlist_names = []
+    for user in user:
+      # To be used as the diverse playlist
+      playlist_names.append(user+'d')
+      # To be used as the non-diverse playlist
+      playlist_names.append(user+'n')
+
+    return playlist_names
 
   def createUserPlaylists(self, user=credentials.USER_ID,):
     """The user refers to the user account where the playlists will be created.
@@ -101,7 +109,8 @@ class API:
       print("The playlists are created!")
 
   # TODO create a method which, for a given user, returns the playlist id based on the playlist's name
-  # def getPlaylistIdFromName():
+  # def getPlaylistIdFromName(self, playlist_name: str, user=credentials.USER_ID):
+
 
   # TODO test this
   def populatePlaylist(self, playlist_id: str, song_uris: list, user=credentials.USER_ID):
