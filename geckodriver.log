@@ -1,0 +1,346 @@
+1669680475054	geckodriver	INFO	Listening on 127.0.0.1:55505
+1669680475564	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "35855" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile43pzOb"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680475935	Marionette	INFO	Marionette enabled
+1669680475976	Marionette	INFO	Listening on port 45319
+WebDriver BiDi listening on ws://127.0.0.1:35855
+Read port: 45319
+1669680476163	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile43pzOb/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:35855/devtools/browser/ea8fef1b-8c46-468c-bdef-6718ef23e3bc
+1669680480593	Marionette	INFO	Stopped listening on port 45319
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669680531255	geckodriver	INFO	Listening on 127.0.0.1:39851
+1669680531758	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "47371" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile9VD5AR"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680532134	Marionette	INFO	Marionette enabled
+1669680532136	Marionette	INFO	Listening on port 38315
+Read port: 38315
+WebDriver BiDi listening on ws://127.0.0.1:47371
+1669680532227	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile9VD5AR/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:47371/devtools/browser/55167611-b9f9-48c6-9868-cee34afa8aac
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+1669680550216	Marionette	INFO	Stopped listening on port 38315
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669680712032	geckodriver	INFO	Listening on 127.0.0.1:44177
+1669680712534	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58267" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilevVJUIg"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680712895	Marionette	INFO	Marionette enabled
+1669680712912	Marionette	INFO	Listening on port 34667
+Read port: 34667
+WebDriver BiDi listening on ws://127.0.0.1:58267
+1669680712962	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilevVJUIg/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58267/devtools/browser/04dfbc72-d3cc-4410-bb81-9bdc421799e1
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+1669680731141	Marionette	INFO	Stopped listening on port 34667
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669680733237	geckodriver	INFO	Listening on 127.0.0.1:45777
+1669680733740	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41023" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileNn9jj4"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680734133	Marionette	INFO	Marionette enabled
+1669680734156	Marionette	INFO	Listening on port 35081
+WebDriver BiDi listening on ws://127.0.0.1:41023
+Read port: 35081
+1669680734326	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNn9jj4/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41023/devtools/browser/1a7da8b2-7686-489c-9a2d-72857fe6d662
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669680885354	Marionette	INFO	Stopped listening on port 35081
+1669680889631	geckodriver	INFO	Listening on 127.0.0.1:34165
+1669680890134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "58247" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileexGhLo"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680890500	Marionette	INFO	Marionette enabled
+1669680890501	Marionette	INFO	Listening on port 36873
+Read port: 36873
+WebDriver BiDi listening on ws://127.0.0.1:58247
+1669680890608	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileexGhLo/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:58247/devtools/browser/64fc526c-d146-4411-a12a-03ed37591685
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669680973996	Marionette	INFO	Stopped listening on port 36873
+1669680980116	geckodriver	INFO	Listening on 127.0.0.1:38825
+1669680980619	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "56323" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilezCO5Tw"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669680980985	Marionette	INFO	Marionette enabled
+1669680980987	Marionette	INFO	Listening on port 45489
+Read port: 45489
+WebDriver BiDi listening on ws://127.0.0.1:56323
+1669680981073	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilezCO5Tw/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:56323/devtools/browser/12e334b2-5734-466e-9a00-fe348e2c2a09
+1669680999553	Marionette	INFO	Stopped listening on port 45489
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669680999671	geckodriver::marionette	ERROR	Failed to close browser connection: Socket not connected (os error 107)
+1669681149805	geckodriver	INFO	Listening on 127.0.0.1:41809
+1669681150307	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40499" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileoOC1Te"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681150664	Marionette	INFO	Marionette enabled
+1669681150666	Marionette	INFO	Listening on port 34215
+Read port: 34215
+WebDriver BiDi listening on ws://127.0.0.1:40499
+1669681150738	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileoOC1Te/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40499/devtools/browser/38a199cb-a2c3-4ff9-a4c6-6c5a29d934d0
+1669681298674	geckodriver	INFO	Listening on 127.0.0.1:46779
+1669681299177	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40843" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofiletqfbbB"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681299569	Marionette	INFO	Marionette enabled
+1669681299571	Marionette	INFO	Listening on port 34903
+Read port: 34903
+WebDriver BiDi listening on ws://127.0.0.1:40843
+1669681299654	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiletqfbbB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:40843/devtools/browser/f340e82a-1a77-4a55-b438-8c8ba2fe110a
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669681310007	Marionette	INFO	Stopped listening on port 34215
+1669681596726	geckodriver	INFO	Listening on 127.0.0.1:36779
+1669681597229	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34803" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile2JuvqZ"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681597574	Marionette	INFO	Marionette enabled
+1669681597576	Marionette	INFO	Listening on port 36187
+Read port: 36187
+WebDriver BiDi listening on ws://127.0.0.1:34803
+1669681597695	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2JuvqZ/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:34803/devtools/browser/9c385309-c19d-4f83-a173-d363814d8df1
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669681697779	Marionette	INFO	Stopped listening on port 36187
+1669681703415	geckodriver	INFO	Listening on 127.0.0.1:38437
+1669681703917	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "57841" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileUyk5Le"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681704311	Marionette	INFO	Marionette enabled
+1669681704352	Marionette	INFO	Listening on port 45063
+WebDriver BiDi listening on ws://127.0.0.1:57841
+Read port: 45063
+1669681704531	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileUyk5Le/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:57841/devtools/browser/c1a3344c-71eb-4eca-aa3b-f07dd70c84ea
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669681784078	geckodriver	INFO	Listening on 127.0.0.1:56201
+1669681784581	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55347" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilek7Gj3N"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681784982	Marionette	INFO	Marionette enabled
+1669681785020	Marionette	INFO	Listening on port 34555
+WebDriver BiDi listening on ws://127.0.0.1:55347
+Read port: 34555
+1669681785200	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilek7Gj3N/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55347/devtools/browser/6936b995-2657-4143-9727-24142ded555c
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669681795657	Marionette	INFO	Stopped listening on port 34555
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669681798352	Marionette	INFO	Stopped listening on port 45063
+1669681811894	geckodriver	INFO	Listening on 127.0.0.1:37155
+1669681812399	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48357" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileNPOIV9"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681812793	Marionette	INFO	Marionette enabled
+1669681812795	Marionette	INFO	Listening on port 37475
+Read port: 37475
+WebDriver BiDi listening on ws://127.0.0.1:48357
+1669681812870	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileNPOIV9/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:48357/devtools/browser/f68034bb-dfc1-48e6-8036-ca1107cddd7f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669681954758	Marionette	INFO	Stopped listening on port 37475
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669681960638	geckodriver	INFO	Listening on 127.0.0.1:57007
+1669681961141	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34919" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileTFjKRj"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669681961525	Marionette	INFO	Marionette enabled
+1669681961527	Marionette	INFO	Listening on port 42153
+Read port: 42153
+WebDriver BiDi listening on ws://127.0.0.1:34919
+1669681961599	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileTFjKRj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:34919/devtools/browser/d2020be8-621c-4e2e-a5d5-aced1abba963
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682082464	Marionette	INFO	Stopped listening on port 42153
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682084387	geckodriver	INFO	Listening on 127.0.0.1:53811
+1669682084890	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41543" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile9wVak7"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682085263	Marionette	INFO	Marionette enabled
+1669682085300	Marionette	INFO	Listening on port 41871
+WebDriver BiDi listening on ws://127.0.0.1:41543
+Read port: 41871
+1669682085475	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile9wVak7/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41543/devtools/browser/ba9a42f1-0d72-4f62-ae93-81018d72ad00
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682234233	geckodriver	INFO	Listening on 127.0.0.1:33607
+1669682234736	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46745" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileux67Ml"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682235107	Marionette	INFO	Marionette enabled
+1669682235152	Marionette	INFO	Listening on port 33399
+WebDriver BiDi listening on ws://127.0.0.1:46745
+Read port: 33399
+1669682235327	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileux67Ml/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:46745/devtools/browser/7b65377f-faa5-4598-9dcc-a970dfd25356
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682243849	Marionette	INFO	Stopped listening on port 33399
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682244036	geckodriver::marionette	ERROR	Failed to close browser connection: Socket not connected (os error 107)
+1669682360631	geckodriver	INFO	Listening on 127.0.0.1:51217
+1669682361134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "51317" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile0B0Yhj"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682361525	Marionette	INFO	Marionette enabled
+1669682361528	Marionette	INFO	Listening on port 45853
+Read port: 45853
+WebDriver BiDi listening on ws://127.0.0.1:51317
+1669682361598	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile0B0Yhj/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:51317/devtools/browser/79b83feb-5fe0-4277-ac2f-6e03122731b4
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682528579	geckodriver	INFO	Listening on 127.0.0.1:49895
+1669682529082	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41943" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilehBYxts"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682529456	Marionette	INFO	Marionette enabled
+1669682529492	Marionette	INFO	Listening on port 42043
+WebDriver BiDi listening on ws://127.0.0.1:41943
+Read port: 42043
+1669682529654	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehBYxts/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41943/devtools/browser/6a39630f-346f-4107-a948-17bb6bb876e9
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682570171	Marionette	INFO	Stopped listening on port 41871
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682571555	Marionette	INFO	Stopped listening on port 45853
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682572838	Marionette	INFO	Stopped listening on port 42043
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682574429	geckodriver	INFO	Listening on 127.0.0.1:54245
+1669682574932	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50935" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilegq3LtL"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682575281	Marionette	INFO	Marionette enabled
+1669682575320	Marionette	INFO	Listening on port 36281
+Read port: 36281
+WebDriver BiDi listening on ws://127.0.0.1:50935
+1669682575369	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilegq3LtL/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50935/devtools/browser/212b157a-8393-4cbf-bd45-56e4d5a4b79b
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682646100	Marionette	INFO	Stopped listening on port 36281
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682651026	geckodriver	INFO	Listening on 127.0.0.1:36405
+1669682651529	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "39991" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileiH9mlv"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682651890	Marionette	INFO	Marionette enabled
+1669682651912	Marionette	INFO	Listening on port 42839
+Read port: 42839
+WebDriver BiDi listening on ws://127.0.0.1:39991
+1669682651960	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileiH9mlv/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:39991/devtools/browser/903e1ad1-1a50-4b9e-ae4d-3e9bc38bcb43
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682727793	geckodriver	INFO	Listening on 127.0.0.1:60371
+1669682728296	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55677" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile07phnl"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682728655	Marionette	INFO	Marionette enabled
+1669682728704	Marionette	INFO	Listening on port 34189
+WebDriver BiDi listening on ws://127.0.0.1:55677
+Read port: 34189
+1669682728882	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile07phnl/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55677/devtools/browser/c92c2123-619d-4f40-a716-f6b71eaac261
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669682743972	Marionette	INFO	Stopped listening on port 42839
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682829092	Marionette	INFO	Stopped listening on port 34189
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669682833583	geckodriver	INFO	Listening on 127.0.0.1:47937
+1669682834086	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "59705" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileXnLC8d"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669682834493	Marionette	INFO	Marionette enabled
+1669682834495	Marionette	INFO	Listening on port 44163
+WebDriver BiDi listening on ws://127.0.0.1:59705
+Read port: 44163
+1669682834673	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileXnLC8d/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:59705/devtools/browser/e673217d-368b-4c13-8101-7974daf61502
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 574: NotFoundError: No such JSWindowActor 'DevToolsFrame'
+1669683077868	Marionette	INFO	Stopped listening on port 44163
+1669683082194	geckodriver	INFO	Listening on 127.0.0.1:39019
+1669683082697	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "52557" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileFLUAlC"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683083050	Marionette	INFO	Marionette enabled
+1669683083084	Marionette	INFO	Listening on port 46789
+Read port: 46789
+WebDriver BiDi listening on ws://127.0.0.1:52557
+1669683083135	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileFLUAlC/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:52557/devtools/browser/fa3b373c-cbb0-41d8-a99c-290c555ab312
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683094992	Marionette	INFO	Stopped listening on port 46789
+1669683429866	geckodriver	INFO	Listening on 127.0.0.1:39941
+1669683430369	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "50901" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileKSyW1S"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683430751	Marionette	INFO	Marionette enabled
+1669683430753	Marionette	INFO	Listening on port 33179
+Read port: 33179
+WebDriver BiDi listening on ws://127.0.0.1:50901
+1669683430826	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileKSyW1S/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:50901/devtools/browser/e72c3434-afd2-49ff-b3c9-cff6de3621ff
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683600900	geckodriver	INFO	Listening on 127.0.0.1:45397
+1669683601403	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41253" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileICSdDr"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683601767	Marionette	INFO	Marionette enabled
+1669683601812	Marionette	INFO	Listening on port 37323
+WebDriver BiDi listening on ws://127.0.0.1:41253
+Read port: 37323
+1669683601968	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileICSdDr/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:41253/devtools/browser/f2de6bad-4b8c-44a1-b95c-20ff4a68400e
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683623769	Marionette	INFO	Stopped listening on port 37323
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669683625355	Marionette	INFO	Stopped listening on port 33179
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+1669683631275	geckodriver	INFO	Listening on 127.0.0.1:44745
+1669683631777	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "49611" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCKxTsB"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683632133	Marionette	INFO	Marionette enabled
+1669683632164	Marionette	INFO	Listening on port 43561
+Read port: 43561
+WebDriver BiDi listening on ws://127.0.0.1:49611
+1669683632213	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCKxTsB/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:49611/devtools/browser/932f48ac-1e2a-4e67-8096-500f6436edbf
+JavaScript error: resource://gre/modules/URIFixup.sys.mjs, line 304: NS_ERROR_FAILURE: Should pass a non-null uri
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683636150	Marionette	INFO	Stopped listening on port 43561
+1669683739679	geckodriver	INFO	Listening on 127.0.0.1:53563
+1669683740181	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55255" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileQvG8IN"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683740536	Marionette	INFO	Marionette enabled
+1669683740576	Marionette	INFO	Listening on port 42365
+Read port: 42365
+WebDriver BiDi listening on ws://127.0.0.1:55255
+1669683740629	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQvG8IN/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:55255/devtools/browser/48cf3331-6232-45a1-bafa-06e09566e301
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683744354	Marionette	INFO	Stopped listening on port 42365
+1669683844553	geckodriver	INFO	Listening on 127.0.0.1:47681
+1669683845056	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "--remote-debugging-port" "37655" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileDo1VAN"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669683845407	Marionette	INFO	Marionette enabled
+1669683845432	Marionette	INFO	Listening on port 42631
+Read port: 42631
+WebDriver BiDi listening on ws://127.0.0.1:37655
+1669683845489	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileDo1VAN/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:37655/devtools/browser/7174f59e-0fc4-44c7-bd65-05a835b71591
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669683849287	Marionette	INFO	Stopped listening on port 42631

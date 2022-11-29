@@ -6,16 +6,88 @@ import pandas as pd
 import json
 import base64
 
+# For interacting with the Flask server
+import os, signal, time
+from selenium import webdriver
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+import re
+
+
 class API:
   def __init__(self):
+    self.ACCESS_TOKEN = None
     self.refreshToken()
-    self.getPlaylists()
+    # self.getPlaylists()
 
   def refreshToken(self):
     try:
       self.ImplicitGrantFlow()
     except:
-      self.ClientCredentialsFlow()
+      if self.ACCESS_TOKEN == None:
+        self.ClientCredentialsFlow()
+        print("Client Credential Flow. If you wish to alter user playlists, look up how to run selenium with the Firefox driver.")
+
+  def RunServer(self):
+    cwd = os.getcwd()
+    self.SERVER = os.popen(f"cd {cwd}/implicit && flask run")
+    
+    # Inform the scraper that the server is running
+    self.ON = True
+
+  def Login(self):
+    while not self.ON:
+      time.sleep(1)
+
+    print("Test printing test test")
+    options = webdriver.FirefoxOptions()
+    # Hides the window
+    options.add_argument('headless')
+
+    # Open firefox
+    driver = webdriver.Firefox(options=options)
+    
+    # Go to website
+    driver.get('http://127.0.0.1:5000/')
+    
+    # Click login
+    btn = driver.find_element(By.XPATH, '//a[@href="/auth"]')
+    driver.execute_script("arguments[0].click();", btn)
+
+    # Log in
+    email = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"input[id='login-username']")))
+    password = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"input[id='login-password']")))
+
+    email.clear()
+    password.clear()
+
+    email.send_keys(credentials.EMAIL)
+    password.send_keys(credentials.PASSWORD)
+
+    WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"button[id='login-button']"))).click()
+
+    try:
+      WebDriverWait(driver, 2).until(EC.element_to_be_clickable((By.CSS_SELECTOR,"button[class='Button-qlcn5g-0 jWBSO']"))).click()
+    except:
+      print()
+
+    # Get auth token
+    url = driver.current_url
+    def find_between(s, start, end):
+      return (s.split(start))[1].split(end)[0]
+    self.ACCESS_TOKEN = find_between(url, 'access_token=', '&token_type=')
+
+    # Set it
+    # Close site
+    driver.quit()
+    if self.ON:
+      self.ON = False
+      self.SERVER.send_signal(signal.CTRL_C_EVENT)
+
+  def ImplicitGrantFlow(self):
+    self.RunServer()
+    self.Login()
 
   def ClientCredentialsFlow(self):
     # The data to be sent
@@ -38,25 +110,6 @@ class API:
     # Update the access token
     self.ACCESS_TOKEN = json.loads(response.text)["access_token"]
     print (response.reason)
-
-  # TODO complete this, must set up some django server to be able to log in
-  def ImplicitGrantFlow(self):
-    # The data to be sent
-    url = "https://accounts.spotify.com/authorize"
-
-    params = {
-      "response_type": "token",
-      "redirect_uri": "https://www.getpostman.com/oauth2/callback",
-      "scope": "playlist-modify-public playlist-read-private playlist-modify-private"
-    }
-
-    # Send the request
-    response = requests.get(url, params)
-
-    # Update the access token
-    self.ACCESS_TOKEN = json.loads(response.text)["access_token"]
-    print (response.reason)
-    print("")
 
   def getPlaylists(self, user=credentials.USER_ID, offset=0, limit=20):
     """Get the public playlists of the specified user (default is the test user)

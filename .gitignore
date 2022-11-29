@@ -10,6 +10,11 @@ venv
 # Postman collection / API info
 Spotify.postman_collection.json
 credentials.py
+.env
 
 # cache
 __pycache__
+
+# SSL keys for the server (for the implicit grant flow)
+private.pem
+public.pem
