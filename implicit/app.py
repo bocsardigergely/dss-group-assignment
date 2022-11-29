@@ -71,7 +71,7 @@ def auth():
         'client_id': CLIENT_ID,
         'response_type': 'token',
         'redirect_uri': REDIRECT_URI,
-        'scope': 'user-read-private user-read-email',
+        'scope': 'playlist-modify-public playlist-read-private playlist-modify-private',
         'state': state,
     }
 

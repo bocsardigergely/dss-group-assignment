@@ -95,8 +95,6 @@ https://github.com/spotify/web-api-auth-examples
   if (access_token) {
     // Display oauth and profile info.
     oauthPlaceholder.innerHTML = oauthTemplate(params);
-    console.log("test")
-    console.log(access_token)
     showProfile();
   } else {
     document.getElementById('user-profile').innerHTML = 'No user profile data to display. Access token may have expired.'

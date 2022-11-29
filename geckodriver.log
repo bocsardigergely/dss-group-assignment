@@ -344,3 +344,27 @@ console.warn: SearchSettings: "get: No settings file exists, new profile?" (new 
 DevTools listening on ws://127.0.0.1:37655/devtools/browser/7174f59e-0fc4-44c7-bd65-05a835b71591
 console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
 1669683849287	Marionette	INFO	Stopped listening on port 42631
+1669684086555	geckodriver	INFO	Listening on 127.0.0.1:57151
+1669684087058	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "--remote-debugging-port" "33469" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile2nVYev"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669684087408	Marionette	INFO	Marionette enabled
+1669684087436	Marionette	INFO	Listening on port 42269
+Read port: 42269
+WebDriver BiDi listening on ws://127.0.0.1:33469
+1669684087489	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile2nVYev/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:33469/devtools/browser/b72db048-65fb-4455-b6fd-cb1c8244c172
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669684091287	Marionette	INFO	Stopped listening on port 42269
+1669684239993	geckodriver	INFO	Listening on 127.0.0.1:36943
+1669684240495	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "headless" "--remote-debugging-port" "53439" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilemy6NX2"
+[GFX1-]: glxtest: VA-API test failed: failed to initialise VAAPI connection.
+1669684240863	Marionette	INFO	Marionette enabled
+1669684240865	Marionette	INFO	Listening on port 42175
+Read port: 42175
+WebDriver BiDi listening on ws://127.0.0.1:53439
+1669684240945	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemy6NX2/search.json.mozlz4", (void 0)))
+DevTools listening on ws://127.0.0.1:53439/devtools/browser/47c7a1aa-ee2b-41b1-bb64-ea1e07e7b934
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1669684244752	Marionette	INFO	Stopped listening on port 42175
