@@ -1,4 +1,4 @@
-# Spotify-Flask Example App
+# Spotify-Flask Example App, make a copy of this, call it '.env', replace the XXX with your details
 FLASK_APP=app.py
 FLASK_ENV=development
 CLIENT_ID=XXX

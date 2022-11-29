@@ -7,10 +7,11 @@ Decision Support Systems - group assignment.pdf
 # Virtual environments
 venv
 
-# Postman collection / API info
+# API info
 Spotify.postman_collection.json
 credentials.py
 .env
+geckodriver.log
 
 # cache
 __pycache__
