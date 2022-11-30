@@ -176,18 +176,12 @@ class API:
             max_valence (int): optional input
     """
     
+    # Error handling
     seed_length = len(seed_artists) + len(seed_genres) + len(seed_tracks)
     if seed_length > 5:
       raise Exception(f"No more than 5 seeds TOTAL allowed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be less than 5.")
     elif seed_length < 1:
       raise Exception(f"You need at least 1 seed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be at least 1.")
-
-    # # Turn lists into csv strings (1 string per list), necessary for API format
-    # seed_artists = ','.join(seed_artists)
-    # seed_genres = ','.join(seed_genres)
-    # seed_tracks = ','.join(seed_tracks)
-
-    url = "https://api.spotify.com/v1/recommendations"
 
     # Jeez that's a lot of inputs!
     input_dict = {
@@ -233,21 +227,24 @@ class API:
       # Add it to the dictionary
       if value != None: payload_dict[key] = value
 
-    # payload_dict = {key: value for key, value in payload_dict.items() if value}
+    # Prepare query
+    url = "https://api.spotify.com/v1/recommendations?"
 
-    print(payload_dict)
-
-    # Make it the right shape
-    payload = json.dumps(payload_dict)
+    query = url
+    for key, value in payload_dict.items():
+      query = f"{query}{key}={value}&"      
     
+    query = query[:-1] # removes the last '&'
+
     headers = {
       'Authorization': f'Bearer {self.ACCESS_TOKEN}',
       'Content-Type': 'application/json'
     }
 
-    response = requests.request("GET", url, headers=headers, data=payload)
-    # response = json.loads(response)
-    return response
+    response = requests.get(query, headers=headers)
+    response = response.json()
+    tracks = [track['uri'] for track in response['tracks']]
+    return tracks
 
   def generatePlaylistNames(self):
     """These are just the ids given in the data.
