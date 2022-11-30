@@ -12,7 +12,6 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-import re
 
 
 class API:
@@ -40,7 +39,6 @@ class API:
     while not self.ON:
       time.sleep(1)
 
-    print("Test printing test test")
     options = webdriver.FirefoxOptions()
     # Hides the window
     options.add_argument('headless')
@@ -83,6 +81,7 @@ class API:
     driver.quit()
     if self.ON:
       self.ON = False
+      # Very hacky way to exit, because it doesn't actually work lol. Right now behavior works properly because the ACCESS_TOKEN is set, and the refreshToken checks for it before running Client Credential Flow.
       self.SERVER.send_signal(signal.CTRL_C_EVENT)
 
   def ImplicitGrantFlow(self):
@@ -132,6 +131,123 @@ class API:
     self.playlists = response["items"]
 
     return self.playlists
+
+  def getRecommendations(self, seed_artists= [], seed_genres= [], seed_tracks= [], limit=10,
+    min_acousticness= None, max_acousticness= None, min_danceability= None, max_danceability= None,
+    min_duration_ms= None, max_duration_ms= None, min_energy= None, max_energy= None,
+    min_instrumentalness= None, max_instrumentalness= None, min_key= None, max_key= None,
+    min_liveness= None, max_liveness= None, min_loudness= None, max_loudness= None,
+    min_speechiness= None, max_speechiness= None, min_tempo= None, max_tempo= None, min_time_signature= None,
+    max_time_signature= None, min_valence= None, max_valence= None):
+    """Get recommendations based on characteristics, NOT based on user!
+      
+      Max 5 seed values total! len(seed_artists) + len(seed_genres) + len(seed_tracks) <= 5.
+        
+      That's a hard limit.
+    
+    Inputs:
+            seed_artists (list): artist Spotify IDs (unique string at the end of the Spotify URI)
+            seed_genres (list): genres such as "classical,country"
+            seed_tracks (list): song Spotify IDs (unique string at the end of the Spotify URI)
+            limit (int): number of songs to return
+            min_acousticness (int): optional input
+            max_acousticness (int): optional input
+            min_danceability (int): optional input
+            max_danceability (int): optional input
+            min_duration_ms (int): optional input
+            max_duration_ms (int): optional input
+            min_energy (int): optional input
+            max_energy (int): optional input
+            min_instrumentalness (int): optional input
+            max_instrumentalness (int): optional input
+            min_key (int): optional input
+            max_key (int): optional input
+            min_liveness (int): optional input
+            max_liveness (int): optional input
+            min_loudness (int): optional input
+            max_loudness (int): optional input
+            min_speechiness (int): optional input
+            max_speechiness (int): optional input
+            min_tempo (int): optional input
+            max_tempo (int): optional input
+            min_time_signature (int): optional input
+            max_time_signature (int): optional input
+            min_valence (int): optional input
+            max_valence (int): optional input
+    """
+    
+    seed_length = len(seed_artists) + len(seed_genres) + len(seed_tracks)
+    if seed_length > 5:
+      raise Exception(f"No more than 5 seeds TOTAL allowed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be less than 5.")
+    elif seed_length < 1:
+      raise Exception(f"You need at least 1 seed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be at least 1.")
+
+    # # Turn lists into csv strings (1 string per list), necessary for API format
+    # seed_artists = ','.join(seed_artists)
+    # seed_genres = ','.join(seed_genres)
+    # seed_tracks = ','.join(seed_tracks)
+
+    url = "https://api.spotify.com/v1/recommendations"
+
+    # Jeez that's a lot of inputs!
+    input_dict = {
+      "seed_artists": seed_artists,
+      "seed_genres": seed_genres,
+      "seed_tracks": seed_tracks,
+      "limit": limit,
+      "min_acousticness": min_acousticness,
+      "max_acousticness": max_acousticness,
+      "min_danceability": min_danceability,
+      "max_danceability": max_danceability,
+      "min_duration_ms": min_duration_ms,
+      "max_duration_ms": max_duration_ms,
+      "min_energy": min_energy,
+      "max_energy": max_energy,
+      "min_instrumentalness": min_instrumentalness,
+      "max_instrumentalness": max_instrumentalness,
+      "min_key": min_key,
+      "max_key": max_key,
+      "min_liveness": min_liveness,
+      "max_liveness": max_liveness,
+      "min_loudness": min_loudness,
+      "max_loudness": max_loudness,
+      "min_speechiness": min_speechiness,
+      "max_speechiness": max_speechiness,
+      "min_tempo": min_tempo,
+      "max_tempo": max_tempo,
+      "min_time_signature": min_time_signature,
+      "max_time_signature": max_time_signature,
+      "min_valence": min_valence,
+      "max_valence": max_valence
+    }
+
+    # Remove any None values, sending those to the API may cause weird behavior
+    payload_dict = dict()
+    for key, value in input_dict.items():
+      # Edit lists before sending
+      if type(value) is list and len(value) > 0:
+        value = ','.join(value)
+      elif type(value) is list and len(value) == 0:
+        value = ''
+      
+      # Add it to the dictionary
+      if value != None: payload_dict[key] = value
+
+    # payload_dict = {key: value for key, value in payload_dict.items() if value}
+
+    print(payload_dict)
+
+    # Make it the right shape
+    payload = json.dumps(payload_dict)
+    
+    headers = {
+      'Authorization': f'Bearer {self.ACCESS_TOKEN}',
+      'Content-Type': 'application/json'
+    }
+
+    response = requests.request("GET", url, headers=headers, data=payload)
+    # response = json.loads(response)
+    return response
 
   def generatePlaylistNames(self):
     """These are just the ids given in the data.
