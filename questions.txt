@@ -1,0 +1,17 @@
+Identification
+- Which playlist are you listening to? Please post the URL you clicked on.
+
+Likkert scale stuff
+
+  Satisfaction
+- I enjoyed listening to the items recommended to me.
+- On average, how much did you listen to of each song? (1 star: listened to 1/5th or less, 3 star: listened to half of each song, on average, etc.)
+- Overall, how do you feel about the recommendations in this list? (1: don't like them at all, 5: like them a lot)
+- I would like to listen to these again. (1: never again, 5: definitely will listen to them again)
+
+
+  Diversity
+- The items recommended to me matched my interests.
+- The items recommended to me are novel (new to me).
+- The items recommended to me are similar to each other. // opposite diverse scale
+- The items recommended to me are of several kinds.
