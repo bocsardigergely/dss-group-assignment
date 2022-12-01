@@ -1,0 +1,4 @@
+## Track and artist data 
+- artist.csv: contains all meta information for artist in the dataset, retrieved from Spotify API for [Get Artist](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-an-artist)
+- track.csv: contains all meta information for tracks in the dataset, retrieved from Spotify API for [Get Track](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-track) and [Get Track's Audio Features](https://developer.spotify.com/documentation/web-api/reference/#/operations/get-track)
+- Check the API description for what each column stands for 
