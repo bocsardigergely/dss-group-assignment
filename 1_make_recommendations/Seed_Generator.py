@@ -3,7 +3,7 @@ from random import sample
 class Seed_Generator:
     def __init__(self):
         print('Time to start generating seeds!')
-        self.data = None
+        self.mergeInfoForSeedGeneration()
 
     def mergeInfoForSeedGeneration(self, path='../participant data'):
         # Import everything
@@ -42,3 +42,27 @@ class Seed_Generator:
         # genres = ",".join(genres)
 
         return {user_id: tracks}
+
+    def get_genre_seeds(self, data: pd.DataFrame, user_id: str, diverse= True, num_seeds=5):
+        if num_seeds > 5:
+            raise Exception(f"No more than 5 seeds allowed! You requested {num_seeds} seeds.")
+        
+        # Choose the user's data
+        data = data[data['user_id'] == user_id]
+
+        # Drop nan genres
+        data = data[data['genre_name'].notna()]
+
+        # Account for shorter lists
+        num_user_genres = len(list(data['genre_name']))
+        num_seeds = num_user_genres if num_user_genres < num_seeds else num_seeds
+
+        # The higher the score, the closer the genre is to the user's preference
+        # TODO problem to note, there is likely a small number of genres for each user, so these seeds are the same, RIP
+        if diverse:
+            genres = list(data.sort_values(by='score', ascending=True, ignore_index=True)['genre_name'])[:num_seeds]
+        else:
+            genres = list(data.sort_values(by='score', ascending=False, ignore_index=True)['genre_name'])[:num_seeds]
+        
+        genres = ",".join(genres)
+        return {user_id: genres}
