@@ -132,7 +132,7 @@ class API:
 
     return self.playlists
 
-  def getRecommendations(self, seed_artists= [], seed_genres= [], seed_tracks= [], limit=10,
+  def getRecommendations(self, seed_artists= '', seed_genres= 'str', seed_tracks= '', limit=10,
     min_acousticness= None, max_acousticness= None, min_danceability= None, max_danceability= None,
     min_duration_ms= None, max_duration_ms= None, min_energy= None, max_energy= None,
     min_instrumentalness= None, max_instrumentalness= None, min_key= None, max_key= None,
@@ -146,9 +146,9 @@ class API:
       That's a hard limit.
     
     Inputs:
-            seed_artists (list): artist Spotify IDs (unique string at the end of the Spotify URI)
-            seed_genres (list): genres such as "classical,country"
-            seed_tracks (list): song Spotify IDs (unique string at the end of the Spotify URI)
+            seed_artists (str): comma-separated list; artist Spotify IDs (unique string at the end of the Spotify URI)
+            seed_genres (str): comma-separated list; genres such as "classical,country"
+            seed_tracks (str): comma-separated list; song Spotify IDs (unique string at the end of the Spotify URI)
             limit (int): number of songs to return
             min_acousticness (int): optional input
             max_acousticness (int): optional input
@@ -177,9 +177,16 @@ class API:
     """
     
     # Error handling
-    seed_length = len(seed_artists) + len(seed_genres) + len(seed_tracks)
+    # TODO break up the seeds, split by column
+    non_empty_seeds = []
+    if seed_artists != '': non_empty_seeds.append(seed_artists)
+    if seed_genres != '': non_empty_seeds.append(seed_genres)
+    if seed_tracks != '': non_empty_seeds.append(seed_tracks)
+
+    seed_length = len([seed.split(',') for seed in non_empty_seeds])
+    # seed_length = len(seed_artists.split(',')) + len(seed_genres.split(',')) + len(seed_tracks.split(','))
     if seed_length > 5:
-      raise Exception(f"No more than 5 seeds TOTAL allowed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be less than 5.")
+      raise Exception(f"No more than 5 seeds TOTAL allowed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be less than 5.\nCurrently receiving: seed_artists={seed_artists}, seed_genres={seed_genres}, seed_tracks={seed_tracks}")
     elif seed_length < 1:
       raise Exception(f"You need at least 1 seed! {seed_length} seeds are in the current input.\nlen(seed_artists) + len(seed_genres) + len(seed_tracks) must be at least 1.")
 
@@ -218,11 +225,11 @@ class API:
     # Remove any None values, sending those to the API may cause weird behavior
     payload_dict = dict()
     for key, value in input_dict.items():
-      # Edit lists before sending
-      if type(value) is list and len(value) > 0:
-        value = ','.join(value)
-      elif type(value) is list and len(value) == 0:
-        value = ''
+      # # Edit lists before sending
+      # if type(value) is list and len(value) > 0:
+      #   value = ','.join(value)
+      # elif type(value) is list and len(value) == 0:
+      #   value = ''
       
       # Add it to the dictionary
       if value != None: payload_dict[key] = value
@@ -241,10 +248,27 @@ class API:
       'Content-Type': 'application/json'
     }
 
+    # Send the request
     response = requests.get(query, headers=headers)
     response = response.json()
     tracks = [track['uri'] for track in response['tracks']]
-    return tracks
+    
+    # Grab just the song ID, not the URI
+    tracks = [track.split(':')[2] for track in tracks]
+    return [self.getTrackFeatures(track) for track in tracks]
+
+  def getTrackFeatures(self, song_id):
+    url = f"https://api.spotify.com/v1/audio-features/{song_id}"
+
+    headers = {
+      'Authorization': f'Bearer {self.ACCESS_TOKEN}',
+      'Content-Type': 'application/json'
+    }
+
+    # Send the request
+    response = requests.get(url, headers=headers)
+    response = response.json()
+    return response
 
   def generatePlaylistNames(self):
     """These are just the ids given in the data.
