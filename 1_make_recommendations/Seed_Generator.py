@@ -1,5 +1,7 @@
 import pandas as pd
 from random import sample
+from Genre_data import genres as all_genres
+
 class Seed_Generator:
     def __init__(self):
         print('Time to start generating seeds!')
@@ -55,14 +57,23 @@ class Seed_Generator:
 
         # Account for shorter lists
         num_user_genres = len(list(data['genre_name']))
-        num_seeds = num_user_genres if num_user_genres < num_seeds else num_seeds
+        user_genre_count = num_user_genres if num_user_genres < num_seeds else num_seeds
 
         # The higher the score, the closer the genre is to the user's preference
         # TODO problem to note, there is likely a small number of genres for each user, so these seeds are the same, RIP
         if diverse:
-            genres = list(data.sort_values(by='score', ascending=True, ignore_index=True)['genre_name'])[:num_seeds]
+            selected_genres = list(data.sort_values(by='score', ascending=True, ignore_index=True)['genre_name'])[:user_genre_count]
         else:
-            genres = list(data.sort_values(by='score', ascending=False, ignore_index=True)['genre_name'])[:num_seeds]
+            selected_genres = list(data.sort_values(by='score', ascending=False, ignore_index=True)['genre_name'])[:user_genre_count]
         
-        genres = ",".join(genres)
+        if len(selected_genres) < num_seeds:
+            # Remove existing genres from 
+            available_genres = [genre for genre in all_genres if genre not in selected_genres]
+
+            # Add genres randomly so that the number is sufficient
+            # print("More genres needed:", num_seeds-len(selected_genres))
+            selected_genres.extend(sample(available_genres, num_seeds-len(selected_genres)))
+            print('final length:', len(selected_genres))
+
+        genres = ",".join(selected_genres)
         return {user_id: genres}

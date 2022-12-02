@@ -132,6 +132,17 @@ class API:
 
     return self.playlists
 
+  def getAvailableGenres(self):
+    """List of genre names that can be used in the Spotify API"""
+    url = "https://api.spotify.com/v1/recommendations/available-genre-seeds"
+    headers = {
+      'Authorization': f'Bearer {self.ACCESS_TOKEN}',
+      'Content-Type': 'application/json'
+    }
+    response = requests.get(url, headers=headers)
+    response = response.json()
+    return response
+
   def getRecommendations(self, seed_artists= '', seed_genres= 'str', seed_tracks= '', limit=10,
     min_acousticness= None, max_acousticness= None, min_danceability= None, max_danceability= None,
     min_duration_ms= None, max_duration_ms= None, min_energy= None, max_energy= None,
