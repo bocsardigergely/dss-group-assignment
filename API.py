@@ -5,6 +5,7 @@ import requests
 import pandas as pd
 import json
 import base64
+import random
 
 # For interacting with the Flask server
 import os, signal, time
@@ -143,7 +144,7 @@ class API:
     response = response.json()
     return response
 
-  def getRecommendations(self, seed_artists= '', seed_genres= 'str', seed_tracks= '', limit=10,
+  def getRecommendations(self, seed_artists= '', seed_genres= 'str', seed_tracks= '', limit=10, try_number=1,
     min_acousticness= None, max_acousticness= None, min_danceability= None, max_danceability= None,
     min_duration_ms= None, max_duration_ms= None, min_energy= None, max_energy= None,
     min_instrumentalness= None, max_instrumentalness= None, min_key= None, max_key= None,
@@ -161,6 +162,7 @@ class API:
             seed_genres (str): comma-separated list; genres such as "classical,country"
             seed_tracks (str): comma-separated list; song Spotify IDs (unique string at the end of the Spotify URI)
             limit (int): number of songs to return
+            try_number (int): number of attempts to get recommendations
             min_acousticness (int): optional input
             max_acousticness (int): optional input
             min_danceability (int): optional input
@@ -236,12 +238,6 @@ class API:
     # Remove any None values, sending those to the API may cause weird behavior
     payload_dict = dict()
     for key, value in input_dict.items():
-      # # Edit lists before sending
-      # if type(value) is list and len(value) > 0:
-      #   value = ','.join(value)
-      # elif type(value) is list and len(value) == 0:
-      #   value = ''
-      
       # Add it to the dictionary
       if value != None: payload_dict[key] = value
 
@@ -256,17 +252,30 @@ class API:
 
     headers = {
       'Authorization': f'Bearer {self.ACCESS_TOKEN}',
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     }
 
-    # Send the request
-    response = requests.get(query, headers=headers)
-    response = response.json()
-    tracks = [track['uri'] for track in response['tracks']]
-    
-    # Grab just the song ID, not the URI
-    tracks = [track.split(':')[2] for track in tracks]
-    return [self.getTrackFeatures(track) for track in tracks]
+    # Sometimes this just doesn't work, rather than fixing, I'm putting a bandage on it
+    try:
+      # Send the request
+      response = requests.get(query, headers=headers)
+      response = response.json()
+      tracks = [track['uri'] for track in response['tracks']]
+      
+      # Grab just the song ID, not the URI
+      tracks = [track.split(':')[2] for track in tracks]
+      return [self.getTrackFeatures(track) for track in tracks]
+    except (requests.exceptions.ConnectionError, json.decoder.JSONDecodeError): # If there's an error, try this recursively
+      time.sleep(2**try_number + random.random()*0.01) # exponential backoff
+      return self.getRecommendations(seed_artists, seed_genres, seed_tracks, limit, try_number=try_number+1,
+      min_acousticness=min_acousticness, max_acousticness=max_acousticness, min_danceability=min_danceability,
+      max_danceability=max_danceability, min_duration_ms=min_duration_ms, max_duration_ms=max_duration_ms,
+      min_energy=min_energy, max_energy=max_energy, min_instrumentalness=min_instrumentalness, max_instrumentalness=max_instrumentalness,
+      min_key=min_key, max_key=max_key, min_liveness=min_liveness, max_liveness=max_liveness, min_loudness=min_loudness,
+      max_loudness=max_loudness, min_speechiness=min_speechiness, max_speechiness=max_speechiness, min_tempo=min_tempo,
+      max_tempo=max_tempo, min_time_signature=min_time_signature, max_time_signature=max_time_signature, min_valence=min_valence,
+      max_valence=max_valence)
 
   def getTrackFeatures(self, song_id):
     url = f"https://api.spotify.com/v1/audio-features/{song_id}"
