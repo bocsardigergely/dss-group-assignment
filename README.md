@@ -13,8 +13,8 @@ We can use [the spotify api](https://developer.spotify.com/console/playlists/) t
 - check their satisfaction of high and low diversity lists against user metrics (sophistication, preference)
  
 # How to use the API (or another module)
-1. Place/fill an _.env_ file in the main directory.
-2. Place the _credentials.py_ file in the modules directory.
+1. Place/fill an _.env_ file in the _implicit_ directory.
+2. Place the _credentials.py_ file in the _modules_ directory.
 
 To import them in any file, use the following lines of code (API as example):
 > import sys

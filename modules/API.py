@@ -2,7 +2,6 @@
 # https://developer.spotify.com/documentation/web-api/reference/#/operations/remove-tracks-playlist
 import credentials
 import requests
-import pandas as pd
 import json
 import base64
 import random
@@ -335,13 +334,13 @@ class API:
     if not "collaborative" in response.text:
       print(f"Creation of {playlist_name} failed.")
 
-  def createAllPlaylistsForAllUsers(self, user=credentials.USER_ID):
+  def createAllPlaylistsForAllUsers(self,  user_ids: list, login_user=credentials.USER_ID):
     """The user refers to the user account where the playlists will be created.
     """
     # Get names of playlists to generate
-    new_names = self.generatePlaylistNames()
+    new_names = self.generatePlaylistNames(user_ids)
     # existing_playlists = self.getPlaylists(limit=len(new_names))
-    existing_playlists = self.playlists
+    existing_playlists = self.getPlaylists(user=login_user)
 
     # Only create playlists if no playlists with that name exists prior
     playlist_names = []
@@ -350,11 +349,11 @@ class API:
     
     creatables = [name for name in new_names if name not in playlist_names]
 
-    # TODO REMOVE! The following line is for testing purposes only
-    creatables = ['python test 2']
+    # # TODO REMOVE! The following line is for testing purposes only
+    # creatables = ['python test 2']
     
     # Requests for the creation of the playlists
-    url = f"https://api.spotify.com/v1/users/{user}/playlists"
+    url = f"https://api.spotify.com/v1/users/{login_user}/playlists"
 
     for new_name in creatables:
       payload = json.dumps({
@@ -404,6 +403,7 @@ class API:
     payload = json.dumps({
       "uris": song_uris
     })
+    
     headers = {
       'Authorization': f'Bearer {self.ACCESS_TOKEN}',
       'Content-Type': 'application/json'
