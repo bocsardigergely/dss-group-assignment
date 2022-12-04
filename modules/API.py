@@ -8,7 +8,7 @@ import base64
 import random
 
 # For interacting with the Flask server
-import os, signal, time
+import os, signal, time, pathlib
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -30,8 +30,13 @@ class API:
         print("Client Credential Flow. If you wish to alter user playlists, look up how to run selenium with the Firefox driver.")
 
   def RunServer(self):
-    cwd = os.getcwd()
-    self.SERVER = os.popen(f"cd {cwd}/implicit && flask run")
+    # cwd = os.getcwd()
+    filepath = str(pathlib.Path(__file__).resolve().parent)
+    print('filepath', filepath)
+    implicit_path = filepath.split(sep="/")[:-1]
+    implicit_path = "/".join(implicit_path) + "/implicit"
+    print('implicit path', implicit_path)
+    self.SERVER = os.popen(f"cd {implicit_path} && flask run")
     
     # Inform the scraper that the server is running
     self.ON = True
@@ -290,21 +295,24 @@ class API:
     response = response.json()
     return response
 
-  def generatePlaylistNames(self):
+  def generatePlaylistNames(self, users: list):
     """These are just the ids given in the data.
+
+    Args:
+      users (list): list of unique user id values.
 
     Returns: a list of strings.
     """
     # Use user ID as base
-    users = pd.read_csv("participant data/survey data/msi_response.csv")
-    users = users["user_id"].unique()
+    # users = pd.read_csv("participant data/survey data/msi_response.csv")
+    # users = users["user_id"].unique()
     
     playlist_names = []
     for user in users:
       # To be used as the diverse playlist
-      playlist_names.append(user+'d')
+      playlist_names.append(user+'_d')
       # To be used as the non-diverse playlist
-      playlist_names.append(user+'n')
+      playlist_names.append(user+'_n')
 
     return playlist_names
 
