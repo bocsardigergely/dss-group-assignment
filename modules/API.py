@@ -2,13 +2,12 @@
 # https://developer.spotify.com/documentation/web-api/reference/#/operations/remove-tracks-playlist
 import credentials
 import requests
-import pandas as pd
 import json
 import base64
 import random
 
 # For interacting with the Flask server
-import os, signal, time
+import os, signal, time, pathlib
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -30,8 +29,13 @@ class API:
         print("Client Credential Flow. If you wish to alter user playlists, look up how to run selenium with the Firefox driver.")
 
   def RunServer(self):
-    cwd = os.getcwd()
-    self.SERVER = os.popen(f"cd {cwd}/implicit && flask run")
+    # cwd = os.getcwd()
+    filepath = str(pathlib.Path(__file__).resolve().parent)
+    print('filepath', filepath)
+    implicit_path = filepath.split(sep="/")[:-1]
+    implicit_path = "/".join(implicit_path) + "/implicit"
+    print('implicit path', implicit_path)
+    self.SERVER = os.popen(f"cd {implicit_path} && flask run")
     
     # Inform the scraper that the server is running
     self.ON = True
@@ -290,21 +294,24 @@ class API:
     response = response.json()
     return response
 
-  def generatePlaylistNames(self):
+  def generatePlaylistNames(self, users: list):
     """These are just the ids given in the data.
+
+    Args:
+      users (list): list of unique user id values.
 
     Returns: a list of strings.
     """
     # Use user ID as base
-    users = pd.read_csv("participant data/survey data/msi_response.csv")
-    users = users["user_id"].unique()
+    # users = pd.read_csv("participant data/survey data/msi_response.csv")
+    # users = users["user_id"].unique()
     
     playlist_names = []
     for user in users:
       # To be used as the diverse playlist
-      playlist_names.append(user+'d')
+      playlist_names.append(user+'_d')
       # To be used as the non-diverse playlist
-      playlist_names.append(user+'n')
+      playlist_names.append(user+'_n')
 
     return playlist_names
 
@@ -327,13 +334,13 @@ class API:
     if not "collaborative" in response.text:
       print(f"Creation of {playlist_name} failed.")
 
-  def createAllPlaylistsForAllUsers(self, user=credentials.USER_ID):
+  def createAllPlaylistsForAllUsers(self,  user_ids: list, login_user=credentials.USER_ID):
     """The user refers to the user account where the playlists will be created.
     """
     # Get names of playlists to generate
-    new_names = self.generatePlaylistNames()
+    new_names = self.generatePlaylistNames(user_ids)
     # existing_playlists = self.getPlaylists(limit=len(new_names))
-    existing_playlists = self.playlists
+    existing_playlists = self.getPlaylists(user=login_user)
 
     # Only create playlists if no playlists with that name exists prior
     playlist_names = []
@@ -342,11 +349,11 @@ class API:
     
     creatables = [name for name in new_names if name not in playlist_names]
 
-    # TODO REMOVE! The following line is for testing purposes only
-    creatables = ['python test 2']
+    # # TODO REMOVE! The following line is for testing purposes only
+    # creatables = ['python test 2']
     
     # Requests for the creation of the playlists
-    url = f"https://api.spotify.com/v1/users/{user}/playlists"
+    url = f"https://api.spotify.com/v1/users/{login_user}/playlists"
 
     for new_name in creatables:
       payload = json.dumps({
@@ -396,6 +403,7 @@ class API:
     payload = json.dumps({
       "uris": song_uris
     })
+    
     headers = {
       'Authorization': f'Bearer {self.ACCESS_TOKEN}',
       'Content-Type': 'application/json'
